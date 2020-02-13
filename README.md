@@ -24,3 +24,10 @@ If you have not created the new Rails app with the `--skip-javascript` option,
 you'll need to update the `Dockerfile` to install Yarn and then run `rails
 webpacker:install` via `docker run` to install and configure Webpacker. There
 is more information about the `Dockerfile` changes required in Chapter 7.
+
+### Chapter 6
+
+Do not use a password longer than 100 bytes for Postgres, the Postgres client
+programs will truncate the password to the first 100 bytes, but ActiveRecord
+will not, leading to successful connections from psql, but PG::ConnectionBad
+(FATAL: password authentication failed for user "postgres") errors from Rails.
