@@ -31,3 +31,6 @@ Do not use a password longer than 100 bytes for Postgres, the Postgres client
 programs will truncate the password to the first 100 bytes, but ActiveRecord
 will not, leading to successful connections from psql, but PG::ConnectionBad
 (FATAL: password authentication failed for user "postgres") errors from Rails.
+
+See https://www.postgresql.org/message-id/flat/E1Rqxp2-0004Qt-PL%40wrigleys.postgresql.org \
+And https://github.com/docker-library/postgres/issues/507
