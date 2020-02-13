@@ -10,7 +10,7 @@ services:
     environment:
       DATABASE_HOST: database
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 0acf41db8ca02773650beca8abe43108657a054b87f8171f8c99dd11aba874f58a37e7e612341a2607b9c606d2a22ad99ddc24a3871a19928b7720733d3b009f
+      POSTGRES_PASSWORD: 0acf41db8ca02773650beca8abe43108657a054b87f8171f8c99dd11aba874f58a37e7e612341a2607b9c606d2a22ad99ddc
       POSTGRES_DB: myapp_development
   redis:
     image: redis
