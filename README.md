@@ -34,3 +34,20 @@ will not, leading to successful connections from psql, but PG::ConnectionBad
 
 See https://www.postgresql.org/message-id/flat/E1Rqxp2-0004Qt-PL%40wrigleys.postgresql.org \
 And https://github.com/docker-library/postgres/issues/507
+
+If you get stuck on this, seemingly unable to get beyond "PG::ConnectionBad:
+FATAL: password authentication failed for user postgres", try shutting down
+all compose services, pruning stopped containers and then force recreating.
+
+```
+docker-compose down
+docker container prune
+docker-compose up --force-recreate
+```
+
+This will force the web and database containers to be re-created, and a new
+postgres database to initialized, hopefully with a password which will work.
+
+Note: simply using `docker-compose up --force-recreate` did not work for me,
+as postgres would find and re-use an existing database, I had to stop, prune
+and recreate to force postgres to re-initialize and recreate the database.
