@@ -51,3 +51,11 @@ postgres database to initialized, hopefully with a password which will work.
 Note: simply using `docker-compose up --force-recreate` did not work for me,
 as postgres would find and re-use an existing database, I had to stop, prune
 and recreate to force postgres to re-initialize and recreate the database.
+
+### Chapter 7
+
+It's no longer necessary to add RUN instructions to Dockerfile to allow apt to
+work with https-based sources (i.e. install `apt-transport-https`) or to install
+an "up-to-date version of Node" from nodesource.com. The latest Ruby 2.6 image,
+at the time of writing, is built on Debian 10/Buster, which seems to support
+https-based sources, and installs a sufficiently up-to-date version of Node.
